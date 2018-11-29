@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Formulario from './Formulario';
 import Resumen from './Resumen';
+import Resultado from './Resultado';
 import {obtenerDiferenciaAnio, calcularMarca, obtenerPlan} from '../Helper';
+
 
 
 class App extends Component {
@@ -17,7 +19,7 @@ class App extends Component {
     const {marca, plan, year} = datos;
   
 
-    // agregar una base de 5000
+    // agregar una base de 2000
     let resultado = 2000;
 
     // obtener la diferencia de años
@@ -36,7 +38,7 @@ class App extends Component {
     let incrementoPlan = obtenerPlan(plan);
 
     // dependiendo dle plana a incementar
-    resultado = parseFloat ( incrementoPlan * resultado).toFixed (2);
+    resultado = parseFloat( incrementoPlan * resultado).toFixed (2);
 
     // crear objeto para el cuadro resumen
     const datosAuto = {
@@ -66,8 +68,13 @@ class App extends Component {
           />
 
           <Resumen
-          datos={this.state.datos}        
+          datos={this.state.datos}      
           />
+          
+          <Resultado 
+           resultado={this.state.resultado}
+           />
+           
         </div>
 
       </div>
